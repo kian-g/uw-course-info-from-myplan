@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "UW Course Info",
+  "version": "1.0.0",
+  "description": "Add current MyPlan course to your Google Sheet via DawgPath GPA and COI",
+  "permissions": ["storage", "tabs"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html" },
+  "host_permissions": ["https://docs.google.com/*"],
+  "content_scripts": [
+    { "matches": ["https://myplan.uw.edu/*"], "js": ["myplan.js"], "css": ["myplan.css"] },
+    { "matches": ["https://dawgpath.uw.edu/course*"], "js": ["dawgpath.js"], "css": ["myplan.css"] }
+  ]
+}
